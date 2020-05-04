@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="shortcut icon" href="{{ url_for('static', filename='heat.png') }}">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PiThermostat</title>
+</head>
+<body>
+<div class="card text-center">
+  <div class="card-header">
+    <h3>PiThermostat</h3>
+  </div>
+  <div class="card-body">
+    <p class="card-text">Set temperature: </p>
+    <h5 class="card-title">{{ set_temp }}&#176;C</h5>
+      <a href="{{ url_for('change',status='minus',temp=set_temp) }}" class="btn btn-outline-primary" type="submit">Cooler</a>&nbsp;&nbsp;&nbsp;
+      <a href="{{ url_for('change',status='plus',temp=set_temp) }}" class="btn btn-outline-danger" type="submit">Hotter</a>
+    <br>
+    {% if heat %}
+      <span class="badge badge-danger">Heat is on</span>
+    {% else %}
+      <span class="badge badge-secondary">Heat is off</span>
+    {% endif %}
+    <br>
+    <p class="card-text">Current temperature and humidity: {{ current_temp }}&#176;C&nbsp;and&nbsp;{{ humidity }}%</p>
+  </div>
+  <div class="card-footer text-muted">
+    Last temperature changed at: {{ date_time }}
+  </div>
+</div>
+</body>
+</html>
