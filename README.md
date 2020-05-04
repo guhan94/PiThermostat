@@ -2,8 +2,10 @@
 
 Simple DIY thermostat made using RaspberryPi and few components controllable via Web UI.
 
-Easy to control your home temperature via any device:
+Easy to control your home temperature using any device:
+
 ![ui_heat_off](./doc/ui_1.png)
+
 ![ui_heat_on](./doc/ui_2.png)
 
 
